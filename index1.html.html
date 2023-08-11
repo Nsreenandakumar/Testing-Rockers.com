@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>Testing Rockers </title>
+
+
+</head>
+<body><br>
+
+<div style="background-color: orange; float:left; width:100% ; height:130PX; overflow: hidden;">
+
+<h1> WELCOME TO SELENIUM WITH C# </h1>
+<hr align="left" width="45%">
+</div>
+<h2>C# Locaters </h2>
+<hr align="left" width="10%">
+<p>
+
+1)	ID<br>
+2)	Name<br>
+3)	Class Name<br>
+4)	Link text<br>
+5)	Partial Link text<br>
+6)	Tag Name<br>
+7)	X path<br>
+8)	CSS Selector<br>
+
+</p>
+
+
+
+<h1> C# Codes</h1>
+<hr align="left" width="10%">
+<br>
+
+<h2 style="font-size:35px;color:blue;"> 1. C# Drop downs :- </h2>
+<hr align="left" width="25%">
+<br>
+<p> Drop down 2 Types</p>
+<hr align="left" width="25%">
+
+<ol>
+<li>	Single select drop down
+</li>
+<li>
+Multi select drop downs
+ </li>
+</ol>
+<br>
+<h3 style="font-size:25px;color:red;">1.Single select drop down </h3>
+<hr align="left" width="25%">
+<p> 
+IWebElement dropdown = driver.FindElement(By.Id("------"));<br>
+
+            SelectElement select = new SelectElement(dropdown);<br>
+            IList<IWebElement> options = select.Options;<br>
+            foreach (IWebElement option in options)<br>
+            {   <br>
+                string optionText = option.Text;<br>
+                Console.WriteLine(optionText);<br>
+            }<br>
+            select.SelectByValue("------");<br>
+select.selectByVisibleText("------");<br>
+select.selectByIndex("------");<br>
+
+            foreach (IWebElement option in select.AllSelectedOptions)<br>
+            {
+<br>
+                Console.WriteLine("selected test is -"+option.Text();<br>
+
+
+</p><br>
+<h3 style="font-size:25px;color:red;"> 2.Multi select drop downs </h3>
+<hr align="left" width="25%">
+
+<p>
+IWebElement multiSelectDropdown = driver.FindElement(By.Id(""));<br>
+            SelectElement selectElement = new SelectElement(multiSelectDropdown);<br>
+            IList<IWebElement> options = selectElement.Options;<br>
+            foreach (IWebElement option in options)<br>
+            {<br>
+                string optionText = option.Text;<br>
+                Console.WriteLine("dropdown options in -"+optionText);<br>
+            }<br>
+            
+                selectElement.SelectByValue("Value");<br>
+            selectElement.SelectByIndex(Index);<br>
+            selectElement.SelectByText("text");<br>
+            foreach (IWebElement option in selectElement.AllSelectedOptions)<br>
+            {<br>
+                Console.WriteLine("selected test is -" + option.Text);<br>
+            }<br>
+
+</p>
+
+
+
+<h2 style="font-size:35px;color:blue;">2. Navigation  Methods :-</h2>
+<hr align="left" width="25%">
+
+<ol>
+<li>	Navigate ().to<br>
+</li>
+<li>
+Navigate ().back</li>
+<li>Navigate().forward
+</li>
+<li>Navigate ().refresh
+</li>
+</ol>
+<br>
+
+<p>
+IWebDriver driver = new ChromeDriver();
+<br>
+            driver.Manage().Window.Maximize();
+<br>
+            driver.Navigate().GoToUrl("https://www.google.co.in/");
+ <br>
+            driver.FindElement(By.Name("---")).SendKeys("-----");
+            <br>
+            driver.FindElement(By.Name("----")).Submit();
+<br>
+            driver.Navigate().GoToUrl("https://www.facebook.com/");
+            <br>
+            driver.FindElement(By.Name("----")).SendKeys("-----");
+            <br>
+            driver.Navigate().Refresh();
+            <br>
+            driver.Navigate().Back();
+            <br>
+            driver.Navigate().Forward();
+
+
+</p>
+
+<h2 style="font-size:35px;color:blue;"> 3. Alarts :- </h2>
+<hr align="left" width="15%">
+
+<ol>
+<li>
+Alert Box:- 
+</li>
+<li>
+confirmBox:-
+ </li>
+<li>
+Prompt Box:-
+</li>
+</ol>
+<h3> 1. Alart Box :- </h3>
+<hr align="left" width="15%">
+<p>
+IWebDriver driver = new ChromeDriver();<br>
+            driver.Manage().Window.Maximize();<br>
+            driver.Navigate().GoToUrl("Url");<br>
+            driver.FindElement(By.Id("alertBox")).Click();<br>
+            Console.WriteLine(driver.SwitchTo().Alert().Text);<br>
+            driver.SwitchTo().Alert().Accept();<br>
+            Console.WriteLine(driver.FindElement(By.Id("")).Text);
+
+</p>
+<h3> 2. ConfirmBox :- </h3>
+<hr align="left" width="15%">
+
+<p>
+
+driver.Navigate().GoToUrl("---------");<br>
+            driver.FindElement(By.Id("-------")).Click();<br>
+            Console.WriteLine(driver.SwitchTo().Alert().Text);<br>
+           driver.SwitchTo().Alert().Accept();<br>
+<h3> Accept Means ok </h3>
+            driver.SwitchTo().Alert().Dismiss();<br>
+<h3> Dismiss Means Cancal </h3>
+            Console.WriteLine(driver.FindElement(By.Id("------")).Text);
+
+
+
+
+
+</p>
+<h3> 3.Prompt Box:- </h3>
+<hr align="left" width="15%">
+
+<p>
+
+
+driver.FindElement(By.XPath("----------")).Click();<br>
+
+            Console.WriteLine(driver.SwitchTo().Alert().Text);<br>
+            driver.SwitchTo().Alert().SendKeys("------");<br>
+            driver.SwitchTo().Alert().Accept(); //ok <br>
+                                                //driver.switchTo().alert().dismiss();  // cancel<br>
+            Console.WriteLine(driver.FindElement(By.Id("------")).Text);
+
+
+
+</p>
+<body>
+</html>
